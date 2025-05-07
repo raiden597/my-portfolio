@@ -68,7 +68,7 @@ function App() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-3xl font-bold mb-4">About Me</h2>
-        <p className='font-normal'>
+        <p className='font-medium'>
         I’m a developer obsessed with crafting sleek, minimalist websites that not only look beautiful but perform brilliantly.
         </p>
       </motion.section>
