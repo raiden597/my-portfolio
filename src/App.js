@@ -67,8 +67,7 @@ function App() {
       >
         <h2 className="text-3xl font-bold mb-4">About Me</h2>
         <p>
-          I’m a React developer passionate about building sleek, fast websites. Let’s create
-          something amazing!
+        I’m a developer obsessed with crafting sleek, minimalist websites that not only look beautiful but perform brilliantly.
         </p>
       </motion.section>
 
@@ -81,7 +80,7 @@ function App() {
       >
         <h2 className="text-3xl font-bold mb-8">Skills</h2>
         <div className="flex justify-center flex-wrap gap-4">
-          {['React', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB','WordPress','PHP'].map((skill) => (
+          {['React', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB','WordPress','PHP','Bootstrap'].map((skill) => (
             <span
               key={skill}
               className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full"
