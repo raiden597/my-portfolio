@@ -49,12 +49,12 @@ function App() {
         transition={{ duration: 0.6 }}
       >
         <h1 className="text-5xl font-bold mb-4">
-          Hi, I’m <span className="text-purple-400 dark:text-purple-600">Saran</span>
+          Hi, I’m <span className="text-purple-400 dark:text-purple-600">Saran.</span>
         </h1>
-        <p className="text-xl mb-6">I build cool stuff</p>
+        <p className="text-xl mb-6">I build cool stuff.</p>
         <a
           href="#projects"
-          className="bg-purple-500 px-6 py-3 rounded-full hover:bg-purple-600 transition button"
+          className="bg-purple-500 font-medium px-6 py-3 rounded-full hover:bg-purple-600 transition button"
         >
           Projects
         </a>
@@ -68,7 +68,7 @@ function App() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-3xl font-bold mb-4">About Me</h2>
-        <p>
+        <p className='font-normal'>
         I’m a developer obsessed with crafting sleek, minimalist websites that not only look beautiful but perform brilliantly.
         </p>
       </motion.section>
@@ -85,7 +85,7 @@ function App() {
           {['React', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB','WordPress','PHP','Bootstrap'].map((skill) => (
             <span
               key={skill}
-              className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full"
+              className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-semibold"
             >
               {skill}
             </span>
@@ -114,7 +114,7 @@ function App() {
           />
           <ProjectCard
             title="Project 3"
-            description="Description to be added"
+            description="Description to be added."
             link="https://www.ign.com"
           />
         </div>
