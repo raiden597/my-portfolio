@@ -29,14 +29,16 @@ function App() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <div className="relative bg-gray-900 dark:bg-white text-white dark:text-gray-900 min-h-screen font-sans">
-      <header className="flex justify-end p-4 relative z-10">
+    <div className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen font-sans transition-colors duration-500">
+       <header className="flex justify-end p-4 relative z-10">
         <button
           onClick={toggleDarkMode}
-          className="text-2xl p-2 rounded-full bg-purple-500 dark:bg-purple-300 text-white dark:text-gray-900 transition"
+          className="text-2xl p-2 rounded-full bg-purple-500 dark:bg-purple-600 text-white transition hover:scale-110"
           aria-label="Toggle dark mode"
         >
-          {isDarkMode ? <FaSun /> : <FaMoon />}
+          <motion.div whileTap={{ rotate: 360 }}>
+            {isDarkMode ? <FaSun /> : <FaMoon />}
+          </motion.div>
         </button>
       </header>
 
@@ -49,12 +51,12 @@ function App() {
         <h1 className="text-5xl font-bold mb-4">
           Hi, I’m <span className="text-purple-400 dark:text-purple-600">Saran</span>
         </h1>
-        <p className="text-xl mb-6">I build cool React apps 🚀</p>
+        <p className="text-xl mb-6">I build cool stuff</p>
         <a
           href="#projects"
-          className="bg-purple-500 px-6 py-3 rounded-full hover:bg-purple-600 transition"
+          className="bg-purple-500 px-6 py-3 rounded-full hover:bg-purple-600 transition button"
         >
-          See My Work
+          Projects
         </a>
       </motion.section>
 
@@ -107,12 +109,12 @@ function App() {
           />
           <ProjectCard
             title="Project 2"
-            description="Description of your project."
+            description="Description to be added."
             link="https://www.google.com"
           />
           <ProjectCard
             title="Project 3"
-            description="Description of your project."
+            description="Description to be added"
             link="https://www.ign.com"
           />
         </div>
@@ -153,12 +155,12 @@ function App() {
 
 function ProjectCard({ title, description, link }) {
   return (
-    <div className="bg-gray-800 dark:bg-gray-200 p-4 rounded-lg hover:scale-105 transform transition">
+    <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:scale-105 transform transition">
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <p className="mb-2">{description}</p>
       <a
         href={link}
-        className="text-purple-400 dark:text-purple-600"
+        className="text-purple-600 dark:text-purple-400 font-semibold"
         target="_blank"
         rel="noopener noreferrer"
       >
