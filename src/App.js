@@ -74,7 +74,7 @@ function App() {
         <p className="text-xl mb-6 font-medium">I build cool stuff.</p>
         <a
           href="#projects"
-          className="bg-purple-500 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transition transform"
+          className="bg-purple-500 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transform"
         >
           Projects
         </a>
