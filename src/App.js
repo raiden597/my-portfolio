@@ -128,9 +128,9 @@ function App() {
             link="https://spotiver.netlify.app/"
           />
           <ProjectCard
-            title="Project 2"
-            description="Description to be added."
-            link="https://www.google.com"
+            title="Generic Tech"
+            description="A Tech Blog."
+            link="https://sran590813479.wordpress.com/"
           />
           <ProjectCard
             title="Project 3"
