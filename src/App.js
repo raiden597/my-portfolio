@@ -3,15 +3,20 @@ import { motion } from 'framer-motion';
 import { FaSun, FaMoon, FaArrowUp } from 'react-icons/fa';
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Check localStorage on initial load
+    return localStorage.getItem('theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
   const [showTopBtn, setShowTopBtn] = useState(false);
 
   useEffect(() => {
     const html = document.documentElement;
     if (isDarkMode) {
       html.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
       html.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }, [isDarkMode]);
 
@@ -24,7 +29,22 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+  useEffect(() => {
+    const handleAnchorClick = (e) => {
+      if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('#')) {
+        e.preventDefault();
+        const targetId = e.target.getAttribute('href').slice(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+    document.addEventListener('click', handleAnchorClick);
+    return () => document.removeEventListener('click', handleAnchorClick);
+  }, []);
+
+  const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -51,10 +71,10 @@ function App() {
         <h1 className="text-5xl font-bold mb-4">
           Hi, I’m <span className="text-purple-400 dark:text-purple-600">Saran.</span>
         </h1>
-        <p className="text-xl mb-6">I build cool stuff.</p>
+        <p className="text-xl mb-6 font-medium">I build cool stuff.</p>
         <a
           href="#projects"
-          className="bg-purple-500 font-medium px-6 py-3 rounded-full hover:bg-purple-600 transition button"
+          className="bg-purple-500 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transition transform"
         >
           Projects
         </a>
@@ -67,8 +87,8 @@ function App() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl font-bold mb-4">About Me</h2>
-        <p className='font-medium'>
+        <h2 className="text-3xl font-bold mb-4 text-center">About Me</h2>
+        <p className="font-medium">
         I’m a developer obsessed with crafting sleek, minimalist websites that not only look beautiful but perform brilliantly.
         </p>
       </motion.section>
@@ -128,13 +148,21 @@ function App() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
-        <p className="mb-4">Let’s work together or just say hello ✉️</p>
+        <p className="mb-4 font-medium">Let’s work together or just say hello ✉️</p>
         <a
           href="mailto:saranjitthind24@gmail.com"
-          className="bg-purple-500 px-6 py-3 rounded-full hover:bg-purple-600 transition"
+          className="bg-purple-500 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transition transform"
         >
           Say Hi!
         </a>
+        <div className="flex justify-center gap-4 mt-6">
+          <a href="https://www.linkedin.com/in/saranjit-thind/" target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 font-semibold">
+            LinkedIn
+          </a>
+          <a href="https://drive.google.com/file/d/1sd05X2DEQ06WRAah6Exu44UMlTWfQNh3/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 font-semibold">
+            Resume
+          </a>
+        </div>
       </motion.section>
 
       <footer className="text-center py-6 text-gray-500 dark:text-gray-400 relative z-10">
