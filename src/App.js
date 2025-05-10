@@ -185,7 +185,7 @@ function ProjectCard({ title, description, link }) {
   return (
     <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:scale-105 transform transition">
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="mb-2">{description}</p>
+      <p className="mb-2 font-medium">{description}</p>
       <a
         href={link}
         className="text-purple-600 dark:text-purple-400 font-semibold"
