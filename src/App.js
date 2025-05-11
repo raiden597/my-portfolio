@@ -106,7 +106,7 @@ function App() {
             <span
               key={skill}
               className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-semibold skill animate-horizontal-wave"
-              style={{ animationDelay: `${i * 0.15}s` }}
+              style={{ animationDelay: `${i * 0.5}s` }}
             >
               {skill}
             </span>

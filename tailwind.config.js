@@ -7,7 +7,7 @@ module.exports = {
       keyframes: {
         'horizontal-wave': {
       '0%, 100%': { transform: 'translateY(0)' },
-      '50%': { transform: 'translateY(-6px)' },
+      '50%': { transform: 'translateY(-5px)' },
         },
       },
       animation: {
