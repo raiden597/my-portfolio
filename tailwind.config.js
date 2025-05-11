@@ -11,7 +11,7 @@ module.exports = {
         },
       },
       animation: {
-        'horizontal-wave': 'horizontal-wave 3s ease-in infinite',
+        'horizontal-wave': 'horizontal-wave 3s ease-in-out infinite',
       },
     },
   },
