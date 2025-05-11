@@ -148,7 +148,7 @@ function App() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
-        <p className="mb-4 font-medium">Let’s work together or just say hello ✉️</p>
+        <p className="mb-6 font-medium">Let’s work together or just say hello ✉️</p>
         <a
           href="mailto:saranjitthind24@gmail.com"
           className="bg-purple-500 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transition transform"
