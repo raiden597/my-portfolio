@@ -102,10 +102,11 @@ function App() {
       >
         <h2 className="text-3xl font-bold mb-8">Skills</h2>
         <div className="flex justify-center flex-wrap gap-4">
-          {['React', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB','WordPress','PHP','Bootstrap'].map((skill) => (
+          {['React', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB','WordPress','PHP','Bootstrap'].map((skill,i) => (
             <span
               key={skill}
-              className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-semibold"
+              className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-semibold skill animate-horizontal-wave"
+              style={{ animationDelay: `${i * 0.15}s` }}
             >
               {skill}
             </span>
