@@ -88,7 +88,7 @@ function App() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-3xl font-bold mb-4 text-center">About Me</h2>
-        <p className="font-medium text-base md:text-lg lg:text-xl">
+        <p className="font-medium text-base md:text-lg lg:text-lg">
         I’m a developer obsessed with crafting sleek, minimalist websites that not only look beautiful but perform brilliantly.
         </p>
       </motion.section>
@@ -149,7 +149,7 @@ function App() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
-        <p className="mb-6 font-medium text-base md:text-lg lg:text-xl">Let’s work together or just say hello ✉️</p>
+        <p className="mb-6 font-medium text-base md:text-lg lg:text-lg">Let’s work together or just say hello ✉️</p>
         <a
           href="mailto:saranjitthind24@gmail.com"
           className="bg-purple-500 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transition transform"
