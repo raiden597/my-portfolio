@@ -88,7 +88,7 @@ function App() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-3xl font-bold mb-4 text-center">About Me</h2>
-        <p className="font-medium">
+        <p className="font-medium text-base md:text-lg lg:text-xl">
         I’m a developer obsessed with crafting sleek, minimalist websites that not only look beautiful but perform brilliantly.
         </p>
       </motion.section>
@@ -105,7 +105,7 @@ function App() {
           {['React', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB','WordPress','PHP','Bootstrap'].map((skill,i) => (
             <span
               key={skill}
-              className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-semibold skill animate-horizontal-wave"
+              className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-semibold animate-horizontal-wave"
               style={{ animationDelay: `${i * 0.5}s` }}
             >
               {skill}
@@ -149,7 +149,7 @@ function App() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
-        <p className="mb-6 font-medium">Let’s work together or just say hello ✉️</p>
+        <p className="mb-6 font-medium text-base md:text-lg lg:text-xl">Let’s work together or just say hello ✉️</p>
         <a
           href="mailto:saranjitthind24@gmail.com"
           className="bg-purple-500 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transition transform"
