@@ -125,7 +125,7 @@ function App() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <ProjectCard
             title="Spotiver"
-            description="A Spotify Clone but better."
+            description="A Spotify Clone with Custom UI/UX."
             link="https://spotiver.netlify.app/"
           />
           <ProjectCard
