@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaSun, FaMoon, FaArrowUp } from 'react-icons/fa';
+import { FaSun, FaMoon, FaArrowUp, FaPhp, FaElementor, FaYinYang, FaApple, FaAndroid } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaWordpress } from 'react-icons/fa';
+import { SiTailwindcss } from 'react-icons/si';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -127,16 +129,31 @@ function App() {
             title="Spotiver"
             description="A Spotify Clone with Custom UI/UX."
             link="https://spotiver.netlify.app/"
+            techStack={[
+            {  icon: FaReact },
+            {  icon: SiTailwindcss },
+            {  icon: FaNodeJs }
+                       ]}
           />
           <ProjectCard
             title="Generic Tech"
             description="A Tech Blog."
             link="https://sran590813479.wordpress.com/"
+            techStack={[
+            { icon: FaWordpress },
+            { icon: FaPhp },
+            { icon: FaElementor }
+                       ]}
           />
           <ProjectCard
-            title="Project 3"
-            description="Description to be added."
+            title="Upcoming Project"
+            description="Coming soon.."
             link="https://www.ign.com"
+            techStack={[
+            { icon: FaYinYang },
+            { icon: FaApple },
+            { icon: FaAndroid }
+                       ]}
           />
         </div>
       </motion.section>
@@ -182,11 +199,20 @@ function App() {
   );
 }
 
-function ProjectCard({ title, description, link }) {
+function ProjectCard({ title, description, link, techStack = [] }) {
   return (
     <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:scale-105 transform transition">
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <p className="mb-2 font-medium">{description}</p>
+
+      <div className="flex flex-wrap gap-3 mb-3">
+        {techStack.map(({ icon: Icon }, index) => (
+          <div key={index} className="flex items-center gap-1 bg-purple-100 text-purple-800 px-3 py-2 rounded-full">
+            <Icon className="text-lg" /> 
+          </div>
+        ))}
+      </div>
+
       <a
         href={link}
         className="text-purple-600 dark:text-purple-400 font-semibold"
@@ -198,5 +224,7 @@ function ProjectCard({ title, description, link }) {
     </div>
   );
 }
+
+
 
 export default App;
