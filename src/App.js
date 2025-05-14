@@ -71,9 +71,9 @@ function App() {
         transition={{ duration: 0.6 }}
       >
         <h1 className="text-5xl font-bold mb-4">
-          Hi, I’m <span className="text-purple-400 dark:text-purple-600">Saran.</span>
+          Hi, I’m <span className="text-purple-400 dark:text-purple-600">Saran</span>
         </h1>
-        <p className="text-xl mb-6 font-medium">I build cool stuff.</p>
+        <p className="text-xl mb-6 font-medium">I build cool stuff</p>
         <a
           href="#projects"
           className="bg-purple-500 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transform"
