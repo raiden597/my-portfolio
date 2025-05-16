@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaSun, FaMoon, FaArrowUp, FaPhp, FaElementor, FaYinYang, FaApple, FaAndroid } from 'react-icons/fa';
-import { FaReact, FaNodeJs, FaWordpress } from 'react-icons/fa';
+import { FaSun, FaMoon, FaArrowUp, FaPhp, FaElementor, FaYinYang, FaApple, FaAndroid, FaLocationArrow, FaDrum } from 'react-icons/fa';
+import { FaReact, FaWordpress } from 'react-icons/fa';
 import { SiTailwindcss } from 'react-icons/si';
 
 function App() {
@@ -73,7 +73,7 @@ function App() {
         <h1 className="text-5xl font-bold mb-4">
           Hi, I’m <span className="text-purple-400 dark:text-purple-600">Saran</span>
         </h1>
-        <p className="text-xl mb-6 font-medium">I build cool stuff</p>
+        <p className="text-xl mb-6 font-medium">I build cool stuff.</p>
         <a
           href="#projects"
           className="bg-purple-500 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transform"
@@ -132,7 +132,17 @@ function App() {
             techStack={[
             {  icon: FaReact },
             {  icon: SiTailwindcss },
-            {  icon: FaNodeJs }
+            {  icon: FaDrum }
+                       ]}
+          />
+          <ProjectCard
+            title="Weddah"
+            description="A Weather App."
+            link="https://weatherlala.netlify.app/"
+            techStack={[
+            {  icon: FaReact },
+            {  icon: SiTailwindcss },
+            {  icon: FaLocationArrow }
                        ]}
           />
           <ProjectCard
