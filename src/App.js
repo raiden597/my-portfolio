@@ -175,7 +175,7 @@ function App() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl font-bold mb-4">Let's Build Something Together</h2>
+        <h2 className="text-3xl font-bold mb-4">Let's Build Together!</h2>
         <p className="mb-6 font-medium text-base md:text-lg lg:text-lg">Let’s work together or just say hi ✉️</p>
         <a
           href="mailto:saranjitthind24@gmail.com"
