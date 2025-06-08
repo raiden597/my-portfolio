@@ -175,8 +175,8 @@ function App() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
-        <p className="mb-6 font-medium text-base md:text-lg lg:text-lg">Let’s work together or just say hello ✉️</p>
+        <h2 className="text-3xl font-bold mb-4">Let's Build Something Together</h2>
+        <p className="mb-6 font-medium text-base md:text-lg lg:text-lg">Let’s work together or just say hi ✉️</p>
         <a
           href="mailto:saranjitthind24@gmail.com"
           className="bg-purple-500 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transition transform"
@@ -229,7 +229,7 @@ function ProjectCard({ title, description, link, techStack = [] }) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        View Demo →
+        Open Project →
       </a>
     </div>
   );
