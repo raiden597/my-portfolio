@@ -91,7 +91,7 @@ function App() {
       >
         <h2 className="text-3xl font-bold mb-4 text-center">About Me</h2>
         <p className="font-medium text-base md:text-lg lg:text-lg">
-        I’m a developer obsessed with crafting sleek, minimalist websites that not only look beautiful but perform brilliantly.
+        I’m a developer obsessed with crafting sleek, minimalist websites/web-apps that not only look beautiful but perform brilliantly.
         </p>
       </motion.section>
 
