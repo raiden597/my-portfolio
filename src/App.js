@@ -104,7 +104,7 @@ function App() {
       >
         <h2 className="text-3xl font-bold mb-8">Skills</h2>
         <div className="flex justify-center flex-wrap gap-4">
-          {['React', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB','WordPress','PHP','Bootstrap'].map((skill,i) => (
+          {['React', 'Tailwind CSS','Next.js', 'Node.js', 'Express', 'MongoDB','WordPress','PHP','Bootstrap'].map((skill,i) => (
             <span
               key={skill}
               className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-semibold animate-horizontal-wave"
@@ -194,7 +194,7 @@ function App() {
       </motion.section>
 
       <footer className="text-center py-6 text-gray-500 dark:text-gray-400 relative z-10">
-        © {new Date().getFullYear()} raiden597
+        © {new Date().getFullYear()} Saran
       </footer>
 
       {showTopBtn && (
