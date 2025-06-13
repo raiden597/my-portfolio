@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaSun, FaMoon, FaArrowUp, FaPhp, FaElementor, FaYinYang, FaApple, FaAndroid, FaLocationArrow, FaDrum, FaLinkedin, FaFileAlt, FaPhone } from 'react-icons/fa';
+import { FaSun, FaMoon, FaArrowUp, FaPhp, FaElementor, FaYinYang, FaApple, FaAndroid, FaLocationArrow, FaDrum, FaLinkedin, FaFileAlt, FaPhoneAlt } from 'react-icons/fa';
 import { FaReact, FaWordpress } from 'react-icons/fa';
 import { SiTailwindcss } from 'react-icons/si';
 
@@ -76,7 +76,7 @@ function App() {
         <p className="text-xl mb-6 font-medium">I build cool stuff.</p>
         <a
           href="#projects"
-          className="bg-purple-100 dark:bg-purple-700 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transform"
+          className="bg-purple-100 dark:bg-purple-700 font-semibold px-8 py-3 rounded-full hover:scale-110 transform"
         >
           Projects
         </a>
@@ -175,16 +175,16 @@ function App() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl font-bold mb-4">Let's Build Together!</h2>
-        <p className="mb-6 font-medium text-base md:text-lg lg:text-lg">Let’s work together or just say hi ✉️</p>
+        <h2 className="text-3xl font-bold mb-6">Let's Build Together!</h2>
+        <p className="mb-10 font-medium text-base md:text-lg lg:text-lg">Let's work together or just say hi ✉️</p>
         <a
           href="mailto:saranjitthind24@gmail.com"
-          className="bg-purple-100 dark:bg-purple-700 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transition transform"
+          className="bg-purple-100 dark:bg-purple-700 font-semibold px-6 py-3 rounded-full hover:scale-110 transition transform"
         >
           Say Hi!
         </a>
 
-  <div className="flex justify-center gap-4 mt-6">
+  <div className="flex justify-center gap-4 mt-10">
   <a
     href="https://www.linkedin.com/in/saranjit-thind/"
     target="_blank"
@@ -210,7 +210,7 @@ function App() {
     aria-label="Call Me"
     className="p-3 rounded-full bg-purple-100 dark:bg-purple-700 text-purple-600 dark:text-white text-xl hover:scale-110 transition"
   >
-    <FaPhone />
+    <FaPhoneAlt />
   </a>
 </div>
       </motion.section>
@@ -222,7 +222,7 @@ function App() {
       {showTopBtn && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-purple-500 text-white p-3 rounded-full shadow-lg hover:bg-purple-600 transition z-50"
+          className="fixed bottom-6 right-6 bg-purple-700 text-white p-3 rounded-full shadow-lg hover:bg-purple-600 transition z-50"
         >
           <FaArrowUp />
         </button>
@@ -236,7 +236,6 @@ function ProjectCard({ title, description, link, techStack = [] }) {
     <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg transform transition">
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <p className="mb-2 font-medium">{description}</p>
-
       <div className="flex flex-wrap gap-3 mb-3">
         {techStack.map(({ icon: Icon }, index) => (
           <div key={index} className="flex items-center gap-1 bg-purple-100 text-purple-800 px-3 py-2 rounded-full">
@@ -244,7 +243,6 @@ function ProjectCard({ title, description, link, techStack = [] }) {
           </div>
         ))}
       </div>
-
       <a
         href={link}
         className="text-purple-600 dark:text-purple-400 font-semibold"
