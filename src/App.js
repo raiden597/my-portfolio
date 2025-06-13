@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaSun, FaMoon, FaArrowUp, FaPhp, FaElementor, FaYinYang, FaApple, FaAndroid, FaLocationArrow, FaDrum } from 'react-icons/fa';
+import { FaSun, FaMoon, FaArrowUp, FaPhp, FaElementor, FaYinYang, FaApple, FaAndroid, FaLocationArrow, FaDrum, FaLinkedin, FaFileAlt, FaPhone } from 'react-icons/fa';
 import { FaReact, FaWordpress } from 'react-icons/fa';
 import { SiTailwindcss } from 'react-icons/si';
 
@@ -76,7 +76,7 @@ function App() {
         <p className="text-xl mb-6 font-medium">I build cool stuff.</p>
         <a
           href="#projects"
-          className="bg-purple-500 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transform"
+          className="bg-purple-100 dark:bg-purple-700 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transform"
         >
           Projects
         </a>
@@ -179,18 +179,40 @@ function App() {
         <p className="mb-6 font-medium text-base md:text-lg lg:text-lg">Let’s work together or just say hi ✉️</p>
         <a
           href="mailto:saranjitthind24@gmail.com"
-          className="bg-purple-500 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transition transform"
+          className="bg-purple-100 dark:bg-purple-700 font-semibold px-8 py-3 rounded-full hover:bg-purple-600 hover:scale-110 transition transform"
         >
           Say Hi!
         </a>
-        <div className="flex justify-center gap-4 mt-6">
-          <a href="https://www.linkedin.com/in/saranjit-thind/" target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 font-semibold">
-            LinkedIn
-          </a>
-          <a href="https://drive.google.com/file/d/1sd05X2DEQ06WRAah6Exu44UMlTWfQNh3/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 font-semibold">
-            Resume
-          </a>
-        </div>
+
+  <div className="flex justify-center gap-4 mt-6">
+  <a
+    href="https://www.linkedin.com/in/saranjit-thind/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn Profile"
+    className="p-3 rounded-full bg-purple-100 dark:bg-purple-700 text-purple-600 dark:text-white text-xl hover:scale-110 transition"
+  >
+    <FaLinkedin />
+  </a>
+
+  <a
+    href="https://drive.google.com/file/d/1sd05X2DEQ06WRAah6Exu44UMlTWfQNh3/view?usp=sharing"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Download Resume"
+    className="p-3 rounded-full bg-purple-100 dark:bg-purple-700 text-purple-600 dark:text-white text-xl hover:scale-110 transition"
+  >
+    <FaFileAlt />
+  </a>
+
+  <a
+    href="tel:+919657189855" 
+    aria-label="Call Me"
+    className="p-3 rounded-full bg-purple-100 dark:bg-purple-700 text-purple-600 dark:text-white text-xl hover:scale-110 transition"
+  >
+    <FaPhone />
+  </a>
+</div>
       </motion.section>
 
       <footer className="text-center py-6 text-gray-500 dark:text-gray-400 relative z-10">
@@ -211,7 +233,7 @@ function App() {
 
 function ProjectCard({ title, description, link, techStack = [] }) {
   return (
-    <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg hover:scale-105 transform transition">
+    <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg transform transition">
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <p className="mb-2 font-medium">{description}</p>
 
