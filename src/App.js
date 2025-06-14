@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaSun, FaMoon, FaArrowUp, FaPhp, FaElementor, FaYinYang, FaApple, FaAndroid, FaLocationArrow, FaDrum, FaLinkedin, FaFileAlt, FaPhoneAlt } from 'react-icons/fa';
 import { FaReact, FaWordpress } from 'react-icons/fa';
-import { SiTailwindcss } from 'react-icons/si';
+import { SiTailwindcss, SiNextdotjs, SiIota } from 'react-icons/si';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -143,6 +143,16 @@ function App() {
             {  icon: FaReact },
             {  icon: SiTailwindcss },
             {  icon: FaLocationArrow }
+                       ]}
+          />
+          <ProjectCard
+            title="To-do"
+            description="A to-do App."
+            link="https://to-do-five-steel.vercel.app/"
+            techStack={[
+            {  icon: SiNextdotjs },
+            {  icon: SiTailwindcss },
+            {  icon: SiIota }
                        ]}
           />
           <ProjectCard
