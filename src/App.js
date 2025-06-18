@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaSun, FaMoon, FaArrowUp, FaPhp, FaElementor, FaYinYang, FaApple, FaAndroid, FaLocationArrow, FaDrum, FaLinkedin, FaFileAlt, FaPhoneAlt } from 'react-icons/fa';
+import { FaSun, FaMoon, FaArrowUp, FaPhp, FaElementor, FaYinYang, FaApple, FaAndroid, FaLocationArrow, FaDrum, FaLinkedin, FaFileAlt, FaPhoneAlt, FaJs, FaMoneyBill } from 'react-icons/fa';
 import { FaReact, FaWordpress } from 'react-icons/fa';
-import { SiTailwindcss, SiNextdotjs, SiIota } from 'react-icons/si';
+import { SiTailwindcss, SiNextdotjs, SiTypescript } from 'react-icons/si';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -152,7 +152,7 @@ function App() {
             techStack={[
             {  icon: SiNextdotjs },
             {  icon: SiTailwindcss },
-            {  icon: SiIota }
+            {  icon: SiTypescript }
                        ]}
           />
           <ProjectCard
@@ -163,6 +163,16 @@ function App() {
             { icon: FaWordpress },
             { icon: FaPhp },
             { icon: FaElementor }
+                       ]}
+          />
+          <ProjectCard
+            title="Expense Tracker"
+            description="Track your expenses.."
+            link="https://expense-tracker-roan-kappa.vercel.app/"
+            techStack={[
+            { icon: FaReact },
+            { icon: FaJs },
+            { icon: FaMoneyBill }
                        ]}
           />
           <ProjectCard
