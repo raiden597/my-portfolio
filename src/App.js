@@ -127,7 +127,7 @@ function App() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <ProjectCard
             title="Spotiver"
-            description="A Spotify Clone with Custom UI/UX."
+            description="A Spotify Clone with Custom UI/UX. Search for an artist and get the artist's top 10 tracks."
             link="https://spotiver.netlify.app/"
             techStack={[
             {  icon: FaReact },
@@ -137,7 +137,7 @@ function App() {
           />
           <ProjectCard
             title="Weddah"
-            description="A Weather App."
+            description="A Weather App. Search for weather of any place on this app. Uses the OpenWeather API."
             link="https://weatherlala.netlify.app/"
             techStack={[
             {  icon: FaReact },
@@ -147,7 +147,7 @@ function App() {
           />
           <ProjectCard
             title="To-do"
-            description="A to-do App."
+            description="A to-do App. Track all your tasks here. You can also export them to your calendar!"
             link="https://to-do-five-steel.vercel.app/"
             techStack={[
             {  icon: SiNextdotjs },
@@ -157,7 +157,7 @@ function App() {
           />
           <ProjectCard
             title="Generic Tech"
-            description="A Tech Blog."
+            description="A Tech Blog which focuses on tech stuff."
             link="https://sran590813479.wordpress.com/"
             techStack={[
             { icon: FaWordpress },
@@ -167,7 +167,7 @@ function App() {
           />
           <ProjectCard
             title="Expense Tracker"
-            description="Track your expenses.."
+            description="Track your expenses using this app. Very useful insights available."
             link="https://expense-tracker-roan-kappa.vercel.app/"
             techStack={[
             { icon: FaReact },
