@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaSun, FaMoon, FaArrowUp, FaPhp, FaElementor, FaYinYang, FaApple, FaAndroid, FaLocationArrow, FaDrum, FaLinkedin, FaFileAlt, FaPhoneAlt, FaJs, FaMoneyBill } from 'react-icons/fa';
 import { FaReact, FaWordpress } from 'react-icons/fa';
 import { SiTailwindcss, SiNextdotjs, SiTypescript } from 'react-icons/si';
+import Microlink from '@microlink/react';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -251,9 +252,24 @@ function App() {
   );
 }
 
+
 function ProjectCard({ title, description, link, techStack = [] }) {
+  const [showPreview, setShowPreview] = useState(false);
+  const hoverTimeout = useRef(null);
+
+  const handleMouseEnter = () => {
+    hoverTimeout.current = setTimeout(() => setShowPreview(true), 200);
+  };
+
+  const handleMouseLeave = () => {
+    clearTimeout(hoverTimeout.current);
+    setShowPreview(false);
+  };
+
   return (
     <motion.div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       whileHover={{ scale: 1.05, y: -5 }}
       whileTap={{ scale: 0.97 }}
       transition={{ type: 'spring', stiffness: 200, damping: 15 }}
@@ -274,18 +290,34 @@ function ProjectCard({ title, description, link, techStack = [] }) {
         ))}
       </div>
 
-      <a
-        href={link}
-        className="text-purple-600 dark:text-purple-400 font-semibold inline-block mt-2 hover:underline"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Open Project →
-      </a>
+      {/* AnimatePresence ensures smooth entry/exit */}
+      <AnimatePresence>
+        {showPreview && (
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ duration: 0.3 }}
+            key="microlink"
+          >
+            <Microlink
+              url={link}
+              size="small"
+              theme={
+                typeof window !== 'undefined' &&
+                document.documentElement.classList.contains('dark')
+                  ? 'dark'
+                  : 'light'
+              }
+              style={{ borderRadius: '10px', marginTop: '12px' }}
+              sandbox
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
-
 
 
 export default App;
