@@ -252,28 +252,67 @@ function App() {
   );
 }
 
-
 function ProjectCard({ title, description, link, techStack = [] }) {
   const [showPreview, setShowPreview] = useState(false);
   const hoverTimeout = useRef(null);
+  const cardRef = useRef(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
+
+  // Close preview on outside tap (mobile only)
+  useEffect(() => {
+    const handleTouchOutside = (event) => {
+      if (
+        isTouchDevice &&
+        showPreview &&
+        cardRef.current &&
+        !cardRef.current.contains(event.target)
+      ) {
+        setShowPreview(false);
+      }
+    };
+
+    document.addEventListener('touchstart', handleTouchOutside);
+    return () => document.removeEventListener('touchstart', handleTouchOutside);
+  }, [showPreview, isTouchDevice]);
 
   const handleMouseEnter = () => {
-    hoverTimeout.current = setTimeout(() => setShowPreview(true), 200);
+    if (!isTouchDevice) {
+      hoverTimeout.current = setTimeout(() => setShowPreview(true), 200);
+    }
   };
 
   const handleMouseLeave = () => {
-    clearTimeout(hoverTimeout.current);
-    setShowPreview(false);
+    if (!isTouchDevice) {
+      clearTimeout(hoverTimeout.current);
+      setShowPreview(false);
+    }
   };
+
+  const handleClick = (e) => {
+    if (isTouchDevice) {
+      e.stopPropagation();
+      setShowPreview((prev) => !prev);
+    }
+  };
+
+  const isDark =
+    typeof document !== 'undefined' &&
+    document.documentElement.classList.contains('dark');
 
   return (
     <motion.div
+      ref={cardRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
       whileHover={{ scale: 1.05, y: -5 }}
       whileTap={{ scale: 0.97 }}
       transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-      className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transform transition-all duration-300"
+      className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transform transition-all duration-300 cursor-pointer md:cursor-default"
     >
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <p className="mb-2 font-medium">{description}</p>
@@ -290,7 +329,6 @@ function ProjectCard({ title, description, link, techStack = [] }) {
         ))}
       </div>
 
-      {/* AnimatePresence ensures smooth entry/exit */}
       <AnimatePresence>
         {showPreview && (
           <motion.div
@@ -303,14 +341,15 @@ function ProjectCard({ title, description, link, techStack = [] }) {
             <Microlink
               url={link}
               size="small"
-              theme={
-                typeof window !== 'undefined' &&
-                document.documentElement.classList.contains('dark')
-                  ? 'dark'
-                  : 'light'
-              }
-              style={{ borderRadius: '10px', marginTop: '12px' }}
-              sandbox
+              theme={isDark ? 'dark' : 'light'}
+              style={{
+                width: '100%',
+                maxWidth: '100%',
+                borderRadius: '10px',
+                marginTop: '12px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+              }}
+              sandbox="true"
             />
           </motion.div>
         )}
