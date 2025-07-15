@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaSun, FaMoon, FaArrowUp, FaPhp, FaElementor, FaYinYang, FaApple, FaAndroid, FaLocationArrow, FaDrum, FaLinkedin, FaFileAlt, FaPhoneAlt, FaJs, FaMoneyBill } from 'react-icons/fa';
 import { FaReact, FaWordpress } from 'react-icons/fa';
@@ -254,22 +254,65 @@ function App() {
 
 function ProjectCard({ title, description, link, techStack = [] }) {
   const [showPreview, setShowPreview] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-  const isDark = typeof document !== 'undefined' &&
-    document.documentElement.classList.contains('dark');
+  const hoverTimeout = useRef(null);
+  const cardRef = useRef(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
   }, []);
 
-  const handleClick = () => setShowPreview(true);
+  // Close preview on outside tap (mobile only)
+  useEffect(() => {
+    const handleTouchOutside = (event) => {
+      if (
+        isTouchDevice &&
+        showPreview &&
+        cardRef.current &&
+        !cardRef.current.contains(event.target)
+      ) {
+        setShowPreview(false);
+      }
+    };
+
+    document.addEventListener('touchstart', handleTouchOutside);
+    return () => document.removeEventListener('touchstart', handleTouchOutside);
+  }, [showPreview, isTouchDevice]);
+
+  const handleMouseEnter = () => {
+    if (!isTouchDevice) {
+      hoverTimeout.current = setTimeout(() => setShowPreview(true), 200);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isTouchDevice) {
+      clearTimeout(hoverTimeout.current);
+      setShowPreview(false);
+    }
+  };
+
+  const handleClick = (e) => {
+    if (isTouchDevice) {
+      e.stopPropagation();
+      setShowPreview((prev) => !prev);
+    }
+  };
+
+  const isDark =
+    typeof document !== 'undefined' &&
+    document.documentElement.classList.contains('dark');
 
   return (
     <motion.div
+      ref={cardRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
       whileHover={{ scale: 1.05, y: -5 }}
       whileTap={{ scale: 0.97 }}
       transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-      className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transform transition-all duration-300"
+      className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transform transition-all duration-300 cursor-pointer md:cursor-default"
     >
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <p className="mb-2 font-medium">{description}</p>
@@ -286,17 +329,8 @@ function ProjectCard({ title, description, link, techStack = [] }) {
         ))}
       </div>
 
-      {!showPreview && (
-        <button
-          onClick={handleClick}
-          className="text-sm font-semibold text-purple-600 dark:text-purple-400 underline hover:text-purple-800"
-        >
-          Show Preview
-        </button>
-      )}
-
       <AnimatePresence>
-        {showPreview && isClient && (
+        {showPreview && (
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -315,6 +349,7 @@ function ProjectCard({ title, description, link, techStack = [] }) {
                 marginTop: '12px',
                 boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
               }}
+              sandbox="true"
             />
           </motion.div>
         )}
