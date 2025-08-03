@@ -179,7 +179,7 @@ function App() {
           <ProjectCard
             title="Upcoming Project"
             description="Coming soon.."
-            link="https://www.ign.com"
+            link="https://github.com/raiden597"
             techStack={[
             { icon: FaYinYang },
             { icon: FaApple },
