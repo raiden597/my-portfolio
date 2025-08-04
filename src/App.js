@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaSun, FaMoon, FaArrowUp, FaPhp, FaElementor, FaYinYang, FaApple, FaAndroid, FaLocationArrow, FaDrum, FaLinkedin, FaFileAlt, FaPhoneAlt, FaJs, FaMoneyBill } from 'react-icons/fa';
+import { FaSun, FaMoon, FaArrowUp, FaPhp, FaElementor, FaYinYang, FaApple, FaAndroid, FaLocationArrow, FaDrum, FaLinkedin, FaFileAlt, FaJs, FaMoneyBill } from 'react-icons/fa';
 import { FaReact, FaWordpress } from 'react-icons/fa';
 import { SiTailwindcss, SiNextdotjs, SiTypescript } from 'react-icons/si';
 import Microlink from '@microlink/react';
