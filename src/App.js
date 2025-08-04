@@ -226,13 +226,6 @@ function App() {
     <FaFileAlt />
   </a>
 
-  <a
-    href="" 
-    aria-label="Call Me"
-    className="p-3 rounded-full bg-purple-100 dark:bg-purple-700 text-purple-600 dark:text-white text-xl hover:scale-110 transition"
-  >
-    <FaPhoneAlt />
-  </a>
 </div>
       </motion.section>
 
