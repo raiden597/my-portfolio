@@ -227,7 +227,7 @@ function App() {
   </a>
 
   <a
-    href="tel:+919657189855" 
+    href="" 
     aria-label="Call Me"
     className="p-3 rounded-full bg-purple-100 dark:bg-purple-700 text-purple-600 dark:text-white text-xl hover:scale-110 transition"
   >
