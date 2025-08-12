@@ -190,44 +190,95 @@ function App() {
       </motion.section>
 
       <motion.section
-        id="contact"
-        className="py-20 text-center relative z-10"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-3xl font-bold mb-6">Let's Build Together!</h2>
-        <p className="mb-8 font-medium text-base md:text-lg lg:text-lg">Let's work together or just say hi ✉️</p>
-        <a
-          href="mailto:saranjitthind24@gmail.com"
-          className="bg-purple-100 dark:bg-purple-700 font-semibold px-6 py-3 rounded-full hover:scale-110 transition transform"
-        >
-          Say Hi!
-        </a>
+  id="contact"
+  className="py-20 text-center relative z-10 px-4 sm:px-6 lg:px-8"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+>
+  <h2 className="text-3xl font-bold mb-6">Let's Build Together!</h2>
+  <p className="mb-8 font-medium text-base md:text-lg lg:text-lg">
+    Let's work together or just say hi ✉️
+  </p>
 
-  <div className="flex justify-center gap-4 mt-8">
-  <a
-    href="https://www.linkedin.com/in/saranjit-thind/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="LinkedIn Profile"
-    className="p-3 rounded-full bg-purple-100 dark:bg-purple-700 text-purple-600 dark:text-white text-xl hover:scale-110 transition"
+  <form
+    onSubmit={async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      await fetch("https://formspree.io/f/mqalnlqz", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" }
+      });
+      alert("Thanks for reaching out! I'll get back to you soon.");
+      e.target.reset();
+    }}
+    className="max-w-lg mx-auto space-y-4"
   >
-    <FaLinkedin />
-  </a>
+    <div>
+      <label htmlFor="name" className="block font-medium mb-1 text-left">Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        required
+        className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900"
+      />
+    </div>
 
-  <a
-    href="https://drive.google.com/file/d/1sd05X2DEQ06WRAah6Exu44UMlTWfQNh3/view?usp=sharing"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Download Resume"
-    className="p-3 rounded-full bg-purple-100 dark:bg-purple-700 text-purple-600 dark:text-white text-xl hover:scale-110 transition"
-  >
-    <FaFileAlt />
-  </a>
+    <div>
+      <label htmlFor="email" className="block font-medium mb-1 text-left">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        required
+        className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900"
+      />
+    </div>
 
-</div>
-      </motion.section>
+    <div>
+      <label htmlFor="message" className="block font-medium mb-1 text-left">Message</label>
+      <textarea
+        name="message"
+        id="message"
+        required
+        rows="5"
+        className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900"
+      />
+    </div>
+
+    <button
+      type="submit"
+      className="bg-purple-500 dark:bg-purple-700 text-white font-semibold px-6 py-3 rounded-full hover:scale-105 transition"
+    >
+      Send Message
+    </button>
+  </form>
+
+  <div className="flex justify-center gap-4 mt-10">
+    <a
+      href="https://www.linkedin.com/in/saranjit-thind/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn Profile"
+      className="p-3 rounded-full bg-purple-100 dark:bg-purple-700 text-purple-600 dark:text-white text-xl hover:scale-110 transition"
+    >
+      <FaLinkedin />
+    </a>
+
+    <a
+      href="https://drive.google.com/file/d/1sd05X2DEQ06WRAah6Exu44UMlTWfQNh3/view?usp=sharing"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Download Resume"
+      className="p-3 rounded-full bg-purple-100 dark:bg-purple-700 text-purple-600 dark:text-white text-xl hover:scale-110 transition"
+    >
+      <FaFileAlt />
+    </a>
+  </div>
+</motion.section>
+
 
       <footer className="text-center py-6 text-gray-500 dark:text-gray-400 relative z-10">
         © {new Date().getFullYear()} Saran
@@ -342,7 +393,7 @@ function ProjectCard({ title, description, link, techStack = [] }) {
                 marginTop: '12px',
                 boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
               }}
-              sandbox="true"
+              sandbox="allow-scripts allow-same-origin"
             />
           </motion.div>
         )}
