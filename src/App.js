@@ -250,7 +250,7 @@ function App() {
 
     <button
       type="submit"
-      className="bg-purple-500 dark:bg-purple-700 text-white font-semibold px-6 py-3 rounded-full hover:scale-105 transition"
+      className="bg-purple-300 dark:bg-purple-700 text-white font-semibold px-6 py-3 rounded-full hover:scale-105 transition"
     >
       Send Message
     </button>
