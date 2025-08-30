@@ -4,6 +4,8 @@ import { FaSun, FaMoon, FaArrowUp, FaPhp, FaElementor, FaYinYang, FaApple, FaAnd
 import { FaReact, FaWordpress } from 'react-icons/fa';
 import { SiTailwindcss, SiNextdotjs, SiTypescript } from 'react-icons/si';
 import Microlink from '@microlink/react';
+import confetti from "canvas-confetti";
+
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -11,6 +13,9 @@ function App() {
     return localStorage.getItem('theme') === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
   const [showTopBtn, setShowTopBtn] = useState(false);
+
+  const [formStatus, setFormStatus] = useState(null);
+
 
   useEffect(() => {
     const html = document.documentElement;
@@ -202,49 +207,62 @@ function App() {
   </p>
 
   <form
-    onSubmit={async (e) => {
-      e.preventDefault();
-      const formData = new FormData(e.target);
-      await fetch("https://formspree.io/f/mqalnlqz", {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" }
+  onSubmit={async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const res = await fetch("https://formspree.io/f/mqalnlqz", {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" }
+    });
+
+    if (res.ok) {
+      setFormStatus("success");
+
+      // 🎉 Trigger confetti burst
+      confetti({
+        particleCount: 120,
+        spread: 70,
+        origin: { y: 0.6 }
       });
-      alert("Thanks for reaching out! I'll get back to you soon.");
+
       e.target.reset();
-    }}
-    className="max-w-lg mx-auto space-y-4"
-  >
-    <div>
-      <label htmlFor="name" className="block font-medium mb-1 text-left">Name</label>
+    } else {
+      setFormStatus("error");
+    }
+  }}
+>
+
+    <div className='py-2'>
+      <label htmlFor="name" className="block font-medium mb-1 text-left lg:text-center">Name</label>
       <input
         type="text"
         name="name"
         id="name"
         required
-        className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900"
+        className="w-full lg:w-1/3 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900"
       />
     </div>
 
-    <div>
-      <label htmlFor="email" className="block font-medium mb-1 text-left">Email</label>
+    <div className='py-2'>
+      <label htmlFor="email" className="block font-medium mb-1 text-left lg:text-center">Email</label>
       <input
         type="email"
         name="email"
         id="email"
         required
-        className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900"
+        className="w-full lg:w-1/3 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900"
       />
     </div>
 
-    <div>
-      <label htmlFor="message" className="block font-medium mb-1 text-left">Message</label>
+    <div className='py-2'>
+      <label htmlFor="message" className="block font-medium mb-1 text-left lg:text-center">Message</label>
       <textarea
         name="message"
         id="message"
         required
         rows="5"
-        className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900"
+        className="w-full lg:w-1/3 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900"
       />
     </div>
 
@@ -255,6 +273,27 @@ function App() {
       Send Message
     </button>
   </form>
+
+  {formStatus === "success" && (
+  <motion.p
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    className="text-green-600 dark:text-green-400 font-medium mt-4"
+  >
+    ✅ Thanks for reaching out! I'll get back to you soon.
+  </motion.p>
+)}
+
+{formStatus === "error" && (
+  <motion.p
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    className="text-red-600 dark:text-red-400 font-medium mt-4"
+  >
+    ❌ Oops! Something went wrong. Please try again.
+  </motion.p>
+)}
+
 
   <div className="flex justify-center gap-4 mt-10">
     <a
